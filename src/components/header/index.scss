@@ -1,0 +1,13 @@
+@import '../../styles/colours';
+
+.header {
+  align-items: center;
+  background-color: $white;
+  color: $black;
+  display: flex;
+  font-size: 32px;
+  font-weight: 600;
+  height: 100px;
+  justify-content: center;
+  width: 100%;
+}

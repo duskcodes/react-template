@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "module": "none", "target": "esnext" },
+  "exclude": ["dist", "node_modules"]
+}
