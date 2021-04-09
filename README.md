@@ -7,48 +7,115 @@ Personal template for front-end React projects.
 1. Create a new repository from this template
 2. Run `git clone` on the resulting repository
 3. Configure the template for your new project
-   - Directory structure/template files in `src`
-   - `.*ignore` files
-   - Rename `.env.example` to `.env`
-4. Run `npm install`
-5. Run `npx husky install`
-6. Run `npm start`
+   - Delete `.env.example` or rename to `.env`
+4. Run `npm install` to install dependencies
+5. Run `npx husky install` to install Git hooks
+6. Run `npm start` to start development server
 7. Open <http://localhost:8080>
 
 ## Features
 
-- Modern JavaScript support via `Babel`
-- Modern CSS support via `Sass`/`Autoprefixer`/`normalize.css`/`CSS Modules`
-- Module bundling and development environment via `Webpack`
-- Opinionated linting and formatting via `ESLint`/`Prettier`
-- Git hooks via `Husky`/`lint-staged`
-- Enhanced VSCode developer experience via `jsconfig.json`
-- Environment variables from `.env` with `process.env.MY_VARIABLE`
-- Scripts for common tasks
-  - `npm run build`
-  - `npm run clean:dist`
-  - `npm run clean:node_modules`
-  - `npm run format:check`
-  - `npm run format:fix`
-  - `npm run lint:check`
-  - `npm run lint:fix`
-  - `npm start`
+### Scripting and building
+
+- Babel
+- Webpack
+
+#### React
+
+- React Router (DOM)
+- PropTypes
+- classNames
+
+#### HTTP client
+
+- ky (polyfilled)
+
+#### Environment variables
+
+- Secrets
+  1. Create `.env` file in root directory (example: `.env.example`)
+  2. Access in code with `process.env.{VARIABLE}`
+- Runtime variables
+  1. Add to `DefinePlugin` in `webpack.config.js`
+  2. Add to `globals` in `.eslintrc.json`
+  3. Access in code with `process.env.{VARIABLE}`
+  - Note: `process.env.NODE_ENV` is included
+
+### Styling
+
+- Sass
+- CSS Modules
+- normalize.css
+- Autoprefixer (`postcss.config.js`)
+
+#### Colours
+
+Make Sass colours accessible throughout code:
+
+1. Store and export in `src/styles/_colours.scss`
+2. Automatically re-exported from `src/styles/colours.js`
+3. Access in code with `colours.{COLOUR}`
+
+### Linting and formatting
+
+- ESLint (`.eslintrc.json`)
+- Prettier (`.prettierrc.json`)
+
+### npm scripts
+
+- `npm run build` — clean `dist` directory and build app for production
+- `npm run clean:dist` — clean `dist` directory
+- `npm run clean:node_modules` — clean `node_modules` directory
+- `npm run format:check` — check for formatting issues
+- `npm run format:fix` — fix formatting issues
+- `npm run lint:check` — check for linting issues
+- `npm run lint:fix` — fix linting issues
+- `npm start` — start development server
+
+### Git hooks
+
+Runs pre-commit linting and formatting checks.
+
+- Husky (`.huskyrc.json`)
+- lint-staged (`.lintstagedrc.json`)
+
+### Ignore files
+
+Best to keep these in sync.
+
+- `.gitignore`
+- `.eslintignore`
+- `.prettierignore`
+
+### Extras
+
+- VS Code config (`jsconfig.json`)
+- Custom HTML template (`index.html`)
+  - Expose variables to Webpack in `src/config/public.js`, defaults:
+    - `title`
+    - `description`
+    - `googleAnalyticsPropertyId`
+  - Favicons
+    - Replace `src/assets/favicons/favicon.png`
+    - Defaults to dusk emoji
+  - Google Fonts
+    - Defaults to Lato
+  - Google Analytics
+    - Opt-in via `googleAnalyticsPropertyId`
+    - Anonymised IP addresses
 
 ## Roadmap
 
-- `Jest`
-- `stylelint`
-- `Browserslist`
+- TypeScript
+- Jest
+- stylelint
+- Browserslist
 - Source maps
-- `TypeScript`
-- Improve HTML template using `HTML5 Boilerplate`
+- Improve HTML template using HTML5 Boilerplate
+- Improve Mozilla Observatory and WebPageTest scores
 - Improve documentation
 
 ## Notes
 
 - Should work on Unix-like operating systems and WSL
 - Includes workaround for WSL 2 [hot reloading issue](https://github.com/microsoft/WSL/issues/4739) via file system polling
-
-## License
-
-[The MIT License](https://raw.githubusercontent.com/dusktrades/react-template/master/LICENSE)

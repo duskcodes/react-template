@@ -1,0 +1,36 @@
+@import './colours';
+
+.firefoxScrollableContainer {
+  scrollbar-color: $grey $black;
+  scrollbar-width: thin;
+
+  &:hover,
+  &:active {
+    scrollbar-color: $white $black;
+  }
+}
+
+.webkitScrollableContainer {
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+
+.scrollableContainer {
+  @extend .firefoxScrollableContainer;
+  @extend .webkitScrollableContainer;
+}

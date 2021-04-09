@@ -9,9 +9,11 @@
     "plugin:react-hooks/recommended",
     "plugin:sonarjs/recommended",
     "plugin:unicorn/recommended",
-    "prettier",
-    "prettier/unicorn"
+    "prettier"
   ],
+  "globals": {
+    "NODE_ENV": "readonly"
+  },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": { "impliedStrict": true, "jsx": true },
@@ -51,6 +53,8 @@
       }
     ],
     "import/prefer-default-export": "off",
+
+    "jsx-a11y/no-onchange": "off",
 
     "sonarjs/prefer-immediate-return": "error",
 

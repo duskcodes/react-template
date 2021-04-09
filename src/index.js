@@ -1,16 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Header } from './components/header';
-import { CONFIG } from './config';
+import { Header, Page } from './components';
 
-import './styles/index.scss';
+import styles from './index.scss';
 
 function App() {
   return (
-    <>
-      <Header>{CONFIG.HEADER_TEXT}</Header>
-    </>
+    <BrowserRouter>
+      <div className={styles.container}>
+        <Header />
+        <Page />
+      </div>
+    </BrowserRouter>
   );
 }
 

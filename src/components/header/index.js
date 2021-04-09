@@ -1,14 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { CONFIG } from '../../config';
 
 import styles from './index.scss';
 
-function Header({ children }) {
-  return <div className={styles.header}>{children}</div>;
-}
+function Header() {
+  return (
+    <header className={styles.container}>
+      {CONFIG.HEADER_TEXT}
 
-Header.propTypes = {
-  children: PropTypes.string.isRequired,
-};
+      <div className={styles.linksContainer}>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+      </div>
+    </header>
+  );
+}
 
 export { Header };

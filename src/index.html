@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="author" content="dusktrades" />
+
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
 
     <link
@@ -9,10 +21,35 @@
       rel="stylesheet"
     />
 
-    <title>react-template</title>
+    <!-- Google Analytics -->
+    <% if (htmlWebpackPlugin.options.googleAnalyticsPropertyId) { %>
+
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.googleAnalyticsPropertyId %>"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag(
+        'config',
+        '<%= htmlWebpackPlugin.options.googleAnalyticsPropertyId %>',
+        { anonymize_ip: true }
+      );
+    </script>
+
+    <% } %>
   </head>
 
   <body>
+    <noscript>Please enable JavaScript to continue.</noscript>
     <div id="root"></div>
   </body>
 </html>

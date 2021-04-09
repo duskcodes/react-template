@@ -1,0 +1,115 @@
+@import '../node_modules/normalize.css/normalize.css';
+
+@import './styles/colours';
+@import './styles/scrollbar';
+
+* {
+  box-sizing: border-box;
+  line-height: 1;
+
+  &::selection {
+    background-color: $white;
+    color: $black;
+  }
+}
+
+html,
+body {
+  @extend .scrollableContainer;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+h5 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.15;
+  margin: 10px 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 10px 0;
+  padding-inline-start: 40px;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+input {
+  outline: none;
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+.container {
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  min-height: 100vh;
+}
