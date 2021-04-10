@@ -13,6 +13,8 @@ Personal template for front-end React projects.
 6. Run `npm start` to start development server
 7. Open <http://localhost:8080>
 
+NOTE: Run `git config core.filemode false` if your development environment causes problematic file permissions (e.g. WSL with mounted drives).
+
 ## Features
 
 ### Scripting and building
@@ -39,7 +41,8 @@ Personal template for front-end React projects.
   1. Add to `DefinePlugin` in `webpack.config.js`
   2. Add to `globals` in `.eslintrc.json`
   3. Access in code with `process.env.{VARIABLE}`
-  - Note: `process.env.NODE_ENV` is included
+
+NOTE: `process.env.IS_PRODUCTION` is included.
 
 ### Styling
 
@@ -91,10 +94,12 @@ Best to keep these in sync.
 
 - VS Code config (`jsconfig.json`)
 - Custom HTML template (`index.html`)
-  - Expose variables to Webpack in `src/config/public.js`, defaults:
+  - Inject HTML variables with Webpack in `src/config/public.js`, defaults:
     - `title`
     - `description`
     - `googleAnalyticsPropertyId`
+    - `isProduction`
+  - Content Security Policy
   - Favicons
     - Replace `src/assets/favicons/favicon.png`
     - Defaults to dusk emoji

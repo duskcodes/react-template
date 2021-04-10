@@ -7,10 +7,10 @@ const Webpack = require('webpack');
 
 const PUBLIC_CONFIG = require('./src/config/public');
 
-function composePlugins(mode) {
+function composePlugins(isProduction) {
   return [
     new Webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(mode),
+      IS_PRODUCTION: isProduction,
     }),
     // TODO: Pass customised html-minifier-terser options to minify inline JS.
     new HtmlWebpackPlugin({
@@ -19,6 +19,7 @@ function composePlugins(mode) {
       title: PUBLIC_CONFIG.TITLE,
       description: PUBLIC_CONFIG.DESCRIPTION,
       googleAnalyticsPropertyId: PUBLIC_CONFIG.GOOGLE_ANALYTICS_PROPERTY_ID,
+      isProduction,
       inject: 'body',
       scriptLoading: 'defer',
     }),
@@ -128,7 +129,7 @@ module.exports = (_, webpackArguments) => {
   return {
     entry,
     output,
-    plugins: composePlugins(webpackArguments.mode),
+    plugins: composePlugins(isProduction),
     module: composeModule(isProduction),
     optimization: composeOptimisation(isProduction),
     devServer: developmentServer,
