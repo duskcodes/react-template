@@ -1,3 +1,4 @@
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,11 +8,14 @@ const Webpack = require('webpack');
 
 const PUBLIC_CONFIG = require('./src/config/public');
 
+const GOOGLE_ANALYTICS_URL = 'https://www.google-analytics.com';
+
 function composePlugins(isProduction) {
   return [
     new Webpack.DefinePlugin({
       IS_PRODUCTION: isProduction,
     }),
+
     // TODO: Pass customised html-minifier-terser options to minify inline JS.
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -23,6 +27,24 @@ function composePlugins(isProduction) {
       inject: 'body',
       scriptLoading: 'defer',
     }),
+    new CspHtmlWebpackPlugin(
+      {
+        'connect-src': [GOOGLE_ANALYTICS_URL],
+        'default-src': ["'none'"],
+        'font-src': ['https://fonts.gstatic.com'],
+        'img-src': ["'self'", GOOGLE_ANALYTICS_URL],
+        'manifest-src': ["'self'"],
+        'object-src': ["'none'"],
+        'script-src': [
+          "'self'",
+          'https://www.googletagmanager.com',
+          GOOGLE_ANALYTICS_URL,
+          'https://ssl.google-analytics.com',
+        ],
+        'style-src': ["'self'", 'https://fonts.googleapis.com'],
+      },
+      { enabled: isProduction }
+    ),
     new FaviconsWebpackPlugin({
       logo: Path.resolve(__dirname, 'src/assets/favicons/favicon.png'),
       cache: true,

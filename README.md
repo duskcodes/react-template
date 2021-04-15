@@ -37,12 +37,12 @@ NOTE: Run `git config core.filemode false` if your development environment cause
 - Secrets
   1. Create `.env` file in root directory (example: `.env.example`)
   2. Access in code with `process.env.{VARIABLE}`
-- Runtime variables
+- Runtime globals
   1. Add to `DefinePlugin` in `webpack.config.js`
   2. Add to `globals` in `.eslintrc.json`
-  3. Access in code with `process.env.{VARIABLE}`
+  3. Access in code with `{GLOBAL}`
 
-NOTE: `process.env.IS_PRODUCTION` is included.
+NOTE: `IS_PRODUCTION` is included as a global.
 
 ### Styling
 
@@ -57,7 +57,8 @@ Make Sass colours accessible throughout code:
 
 1. Store and export in `src/styles/_colours.scss`
 2. Automatically re-exported from `src/styles/colours.js`
-3. Access in code with `colours.{COLOUR}`
+3. Import `src/styles/colours.js`
+4. Access in code with `colours.{COLOUR}`
 
 ### Linting and formatting
 
@@ -116,6 +117,7 @@ Best to keep these in sync.
 - stylelint
 - Browserslist
 - Source maps
+- Simple HTTP client by wrapping ky
 - Improve HTML template using HTML5 Boilerplate
 - Improve Mozilla Observatory and WebPageTest scores
 - Improve documentation
