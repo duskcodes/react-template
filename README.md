@@ -7,9 +7,11 @@ Personal template for front-end React projects.
 1. Create a new repository from this template
 2. Run `git clone` on the resulting repository
 3. Configure the template for your new project
+   - Update `README.md`
+   - Update `package.json`
    - Delete `.env.example` or rename to `.env`
-4. Run `npm install` to install dependencies
-5. Run `npx husky install` to install Git hooks
+4. (Optional) Run `git init` to initialise Git repository
+5. Run `npm install` to install dependencies and Git hooks (requires step 4)
 6. Run `npm start` to start development server
 7. Open <http://localhost:8080>
 
