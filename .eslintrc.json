@@ -65,6 +65,7 @@
     "unicorn/no-unsafe-regex": "error",
     "unicorn/no-unused-properties": "error",
     "unicorn/number-literal-case": "off",
+    "unicorn/prefer-module": "off",
     "unicorn/prefer-replace-all": "error",
     "unicorn/prevent-abbreviations": [
       "error",
