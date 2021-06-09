@@ -13,7 +13,7 @@
       {
         "targets": "> 0.25%, not dead",
         "useBuiltIns": "usage",
-        "corejs": "3.11"
+        "corejs": "3.14"
       }
     ],
     ["@babel/preset-react"]
